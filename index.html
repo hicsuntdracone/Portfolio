@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Yogi Satrio Wijoyo | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .hero-gradient { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 
@@ -18,34 +20,161 @@
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
             <div class="text-2xl font-bold tracking-tighter text-blue-600">YOGI <span class="text-slate-800">S. </span></div>
             <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wide">
-                <a href="index.html" class="hover:text-blue-600 transition">Home</a>
-                <a href="projects.html" class="hover:text-blue-600 transition">Projects</a>
-                <a href="about.html" class="hover:text-blue-600 transition">About</a>
+                <a href="index.html" class="flex items-center text-blue-600 border-b-2 border-blue-600 px-1 pt-1 transition-all duration-200">Home</a>
+                <a href="Projects/projects.html" class="flex items-center text-slate-500 hover:text-blue-600 px-1 pt-1 transition-all duration-200 border-b-2 border-transparent hover:border-blue-600">Projects</a>
+                <a href="About/about.html" class="flex items-center text-slate-500 hover:text-blue-600 px-1 pt-1 transition-all duration-200 border-b-2 border-transparent hover:border-blue-600">About</a>
             </div>
             <button class="md:hidden text-slate-600">Menu</button>
         </div>
     </nav>
-    
+
+    <header class="hero-gradient text-white py-24 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="bg-blue-600/20 text-blue-400 border border-blue-600/30 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">
+                Geomatics & Machine Learning
+            </span>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+                Engineering <span class="text-blue-500">Spatial</span> Insights.
+            </h1>
+            <p class="text-xl text-slate-400 leading-relaxed mb-10 max-w-2xl mx-auto">
+                Specializing in UAV Photogrammetry and AI-driven imagery analysis to solve complex agricultural and monitoring challenges.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="Projects/projects.html" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-xl font-bold transition shadow-lg shadow-blue-600/20">View Projects</a>
+                <a href="About/about.html" class="bg-white/10 hover:bg-white/20 border border-white/20 px-8 py-3 rounded-xl font-bold transition">About Me</a>
+            </div>
+        </div>
+    </header>
+
     <section class="max-w-7xl mx-auto px-4 py-16">
-        <h2 class="text-3xl font-bold mb-10 text-center">Featured Geospatial Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-slate-100">
-                <img src="resources/images/buenosaires-palm-thumb.jpg" class="w-full h-48 object-cover" alt="Palm Detection">
-                <div class="p-6">
-                    <span class="text-blue-600 text-xs font-bold uppercase">UAV Photogrammetry</span>
-                    <h3 class="text-xl font-bold mt-2">Buenos Aires Palm Detection</h3>
-                    <p class="text-slate-600 text-sm mt-3 line-clamp-3">Multispectral imagery analysis and YOLO11s tree counting in Argentina.</p>
-                    <a href="buenosaires-palm.html" class="mt-6 inline-block text-blue-600 font-semibold text-sm">View Project →</a>
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-3xl font-bold text-slate-900 border-l-4 border-blue-600 pl-4">Highlight</h2>
+            <div class="flex gap-2">
+                <button onclick="scrollGrid(-300)" class="p-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 shadow-sm transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button onclick="scrollGrid(300)" class="p-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 shadow-sm transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="project-grid" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 scroll-smooth no-scrollbar" style="scrollbar-width: none;">
+            </div>
+    </section>
+
+    <script>
+        const projects = [
+            {
+                "title": "Buenos Aires Palm Detection",
+                "link": "Projects/BuenosAiresPalm/buenosaires-palm.html",
+                "image": "Projects/BuenosAiresPalm/images/buenosaires-palm-thumb.jpg",
+                "tags": ["UAV", "Photogrammetry", "YOLO11s", "GIS"]
+            }
+            // When you have a new project, just add a new { } block here!
+        ];
+
+        function scrollGrid(distance) {
+            document.getElementById('project-grid').scrollBy({ left: distance, behavior: 'smooth' });
+        }
+
+        // This function runs automatically as soon as the page loads
+        (function initGallery() {
+            const grid = document.getElementById('project-grid');
+            let content = '';
+
+            // 1. Add Actual Projects
+            projects.forEach(p => {
+                content += createCard(p.title, p.link, p.image, p.tags, false);
+            });
+
+            // 2. Logic: Ensure at least 3 cards exist
+            const minCards = 3;
+            if (projects.length < minCards) {
+                for (let i = 0; i < (minCards - projects.length); i++) {
+                    content += createCard("Future Projects", "#", "", ["TBD"], true);
+                }
+            }
+
+            grid.innerHTML = content;
+        })();
+
+        function createCard(title, link, img, tags, isPlaceholder) {
+            const bgClass = isPlaceholder ? 'bg-slate-50 border-dashed border-2' : 'bg-white shadow-md hover:shadow-xl';
+            const imgSection = isPlaceholder 
+                ? `<div class="w-full h-48 bg-slate-200 flex items-center justify-center text-slate-400 font-bold uppercase tracking-widest text-[10px]">Project in Progress</div>`
+                : `<img src="${img}" class="w-full h-48 object-cover">`;
+
+            return `
+                <div class="min-w-[300px] md:min-w-[380px] snap-start rounded-2xl overflow-hidden border border-slate-100 transition duration-300 ${bgClass}">
+                    ${imgSection}
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3">
+                            ${tags.map(t => `<span class="text-[10px] ${isPlaceholder ? 'bg-slate-200 text-slate-500' : 'bg-blue-50 text-blue-600'} px-2 py-0.5 rounded-full font-bold uppercase">${t}</span>`).join('')}
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">${title}</h3>
+                        ${isPlaceholder ? '<span class="text-slate-400 text-sm italic">Coming soon...</span>' : `<a href="${link}" class="text-blue-600 font-semibold text-sm hover:underline flex items-center gap-1">View Full Details →</a>`}
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+
+    <style>
+        /* Hides scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        /* Hides scrollbar for IE, Edge and Firefox */
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+
+        <section class="max-w-5xl mx-auto px-4 py-20 border-t">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="w-48 h-48 bg-slate-200 rounded-full flex-shrink-0 overflow-hidden border-4 border-white shadow-xl">
+                <img src="resources/images/foto.jpg" alt="Yogi Satrio Wijoyo" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h2 class="text-3xl font-bold mb-4">Hi, I'm Yogi Satrio Wijoyo.</h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    A Geomatics Specialist focused on the intersection of Geospatial Technology and Machine Learning. I'm highly intersted in turning high-resolution aerial imagery into actionable insights for agriculture and spatial monitoring.
+                </p>
+                <div class="flex gap-4">
+                    <a href="mailto:s.wyogi32@gmail.com" class="bg-slate-900 text-white px-6 py-2 rounded-lg font-medium hover:bg-slate-800 transition">Contact Me</a>
+                    <a href="#" class="border border-slate-200 px-6 py-2 rounded-lg font-medium hover:bg-slate-50 transition">Download CV</a>
                 </div>
             </div>
-
-            <div class="bg-slate-100 rounded-2xl border-2 border-dashed border-slate-300 flex items-center justify-center p-12 text-center">
-                <p class="text-slate-500 font-medium italic">New Project Coming Soon...</p>
-            </div>
-
         </div>
     </section>
+
+    <div class="bg-white border-y border-slate-100 py-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-center text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-8">Technical Proficiency</p>
+            
+            <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-90">
+                
+                <div class="flex items-center gap-3 group">
+                    <img src="resources/images/qgis.png" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="QGIS">
+                    <span class="font-bold text-slate-700 tracking-tight group-hover:text-blue-600 transition">QGIS</span>
+                </div>
+
+                <div class="flex items-center gap-3 group">
+                    <img src="resources/images/Metashape_Sign.svg" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="Metashape">
+                    <span class="font-bold text-slate-700 tracking-tight group-hover:text-blue-600 transition">Agisoft Metashape</span>
+                </div>
+
+                <div class="flex items-center gap-3 group">
+                    <img src="resources/images/Python.svg" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="Python">
+                    <span class="font-bold text-slate-700 tracking-tight group-hover:text-blue-600 transition">Python / YOLO</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
+            2026 Yogi Satrio Wijoyo.
+        </div>
+    </footer>
 </body>
 
 </html>
