@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buenos Aires Palm Tree Detection</title>
+    <title>Home Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -11,142 +11,41 @@
         .hero-gradient { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); }
     </style>
 </head>
-<body class="bg-gray-50 text-slate-900">
+
+<body>
 
     <nav class="bg-white border-b sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
             <div class="text-2xl font-bold tracking-tighter text-blue-600">YOGI <span class="text-slate-800">S. </span></div>
             <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wide">
-                <a href="#" class="hover:text-blue-600 border-b-2 border-blue-600">Portfolio</a>
-                <a href="#" class="hover:text-blue-600">Profile</a>
+                <a href="index.html" class="hover:text-blue-600 transition">Home</a>
+                <a href="projects.html" class="hover:text-blue-600 transition">Projects</a>
+                <a href="about.html" class="hover:text-blue-600 transition">About</a>
             </div>
+            <button class="md:hidden text-slate-600">Menu</button>
         </div>
     </nav>
-
-    <header class="hero-gradient text-white py-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <span class="bg-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase mb-4 inline-block">UAV Photogrammetry</span>
-            <h1 class="text-4xl md:text-5xl font-bold mb-2">Buenos Aires Palm Plantation</h1>
-            <p class="text-lg text-slate-300 leading-relaxed">
-                Multispectral imagery analysis of a palm plantation in Buenos Aires, Argentina.
-            </p>
-            <div class="flex justify-center gap-4">
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
-        
-        <div class="lg:col-span-2 space-y-12">
-            <section>
-                <h2 class="text-2xl font-bold mb-4 border-l-4 border-blue-600 pl-4">Introduction</h2>
-                <p class="text-slate-600 leading-relaxed mb-4">
-                    This data presents tree-level analysis of a 7.3 ha palm plantation in Buenos Aires, Argentina. A total of 4,728 trees were detected from 4.5 cm UAV multispectral imagery using a custom-trained YOLO11s model. Per-tree NDVI and NDRE values were calculated from the orthomosaic to assess canopy health and spatial variability across two plantation blocks.
-                </p>
-
-                <div class="relative w-full rounded-xl overflow-hidden shadow-lg border bg-slate-100 h-[500px] md:h-[600px]">
-    <div class="absolute inset-0 flex items-center justify-center text-slate-400 animate-pulse">
-        <span>Loading Interactive Map...</span>
-    </div>
     
-    <iframe 
-        src="https://hicsuntdracone.github.io/BuenosAires/WEBGIS" 
-        class="absolute top-0 left-0 w-full h-full border-0 z-10"
-        title="Buenos Aires Palm Tree WebGIS"
-        allow="geolocation; focus-without-user-activation"
-        allowfullscreen>
-    </iframe>
-</div>
-
-<p class="mt-3 text-sm text-slate-500 italic">
-    * Interactive WebGIS: Zoom and pan to explore.
-</p>
-            </section>
-
-<div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-    <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20">
-        <div class="text-2xl font-bold">7.3</div>
-        <div class="text-xs uppercase tracking-wider text-slate-400">Hectares</div>
-    </div>
-    <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20">
-        <div class="text-2xl font-bold">4,728</div>
-        <div class="text-xs uppercase tracking-wider text-slate-400">Trees Detected</div>
-    </div>
-    <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20">
-        <div class="text-2xl font-bold">4.5cm</div>
-        <div class="text-xs uppercase tracking-wider text-slate-400">GSD</div>
-    </div>
-    <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20">
-        <div class="text-2xl font-bold">94%</div>
-        <div class="text-xs uppercase tracking-wider text-slate-400">mAP @.50</div>
-    </div>
-</div>
-<section class="mt-12">
-    <h3 class="text-xl font-bold mb-4">Spectral Indices Analysis</h3>
-    <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse bg-white rounded-xl overflow-hidden shadow-sm border">
-            <thead class="bg-slate-50 border-b">
-                <tr>
-                    <th class="p-4 font-semibold text-slate-700">Index</th>
-                    <th class="p-4 font-semibold text-slate-700">Focus</th>
-                    <th class="p-4 font-semibold text-slate-700">Application</th>
-                </tr>
-            </thead>
-            <tbody class="text-slate-600 divide-y">
-                <tr>
-                    <td class="p-4 font-mono text-blue-600">NDVI</td>
-                    <td class="p-4">Chlorophyll Absorption</td>
-                    <td class="p-4">General biomass & vigor detection</td>
-                </tr>
-                <tr>
-                    <td class="p-4 font-mono text-blue-600">NDRE</td>
-                    <td class="p-4">Red Edge Sensitivity</td>
-                    <td class="p-4">Late-stage crop health & permanent crops</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-            <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-xl border shadow-sm">
-                    <h3 class="font-bold text-lg mb-2">Sensor Bands</h3>
-                    <p class="text-sm text-slate-500">Blue, Green, Red, Red Edge, NIR, Pan</p>
+    <section class="max-w-7xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold mb-10 text-center">Featured Geospatial Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-slate-100">
+                <img src="resources/images/buenosaires-palm-thumb.jpg" class="w-full h-48 object-cover" alt="Palm Detection">
+                <div class="p-6">
+                    <span class="text-blue-600 text-xs font-bold uppercase">UAV Photogrammetry</span>
+                    <h3 class="text-xl font-bold mt-2">Buenos Aires Palm Detection</h3>
+                    <p class="text-slate-600 text-sm mt-3 line-clamp-3">Multispectral imagery analysis and YOLO11s tree counting in Argentina.</p>
+                    <a href="buenosaires-palm.html" class="mt-6 inline-block text-blue-600 font-semibold text-sm">View Project →</a>
                 </div>
-            </section>
-        </div>
-
-        <aside class="space-y-8">
-            <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-xl">
-                <h3 class="text-xl font-bold mb-6">Technical Specs</h3>
-                <ul class="space-y-4">
-                    <li class="flex justify-between border-b border-slate-700 pb-2">
-                        <span class="text-slate-400">Software</span>
-                        <span class="font-mono">QGIS, Metashape</span>
-                    </li>
-                    <li class="flex justify-between border-b border-slate-700 pb-2">
-                        <span class="text-slate-400">CNN Framework</span>
-                        <span class="font-mono">YOLO11s</span>
-                    </li>
-                    <li class="flex justify-between border-b border-slate-700 pb-2">
-                        <span class="text-slate-400">Type</span>
-                        <span class="font-mono">UAV Photogrammetry</span>
-                    </li>
-                </ul>
             </div>
 
-            <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                <h3 class="font-bold text-blue-900 mb-2">Related</h3>
-                <p class="text-sm text-blue-800 mb-4">Check out my latest portfolio</p>
-                <a href="#" class="text-blue-600 font-semibold text-sm hover:underline">View Other →</a>
+            <div class="bg-slate-100 rounded-2xl border-2 border-dashed border-slate-300 flex items-center justify-center p-12 text-center">
+                <p class="text-slate-500 font-medium italic">New Project Coming Soon...</p>
             </div>
-        </aside>
 
-    </main>
-
-    <footer class="bg-white border-t py-12 mt-20">
-        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
-            &copy; 2026 Yogi Satrio Wijoyo.
         </div>
-    </footer>
-
+    </section>
 </body>
+
 </html>
