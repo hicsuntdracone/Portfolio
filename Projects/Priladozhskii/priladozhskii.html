@@ -29,7 +29,7 @@
                   >YOGI <span class="text-slate-800">S. </span>
                 </a>
             </div>
-            <div 
+            <div id="navbar-menu"
               class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wide">
                 <a href="../projects.html" class="text-blue-600 border-b-2 border-blue-600 px-1 transition">
                   Projects
@@ -37,6 +37,17 @@
                 <a href="../../About/about.html" class="text-slate-500 hover:text-blue-600 transition">
                   About
                 </a>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-slate-600">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-4 space-y-4">
+              <a href="../projects.html" class="block text-blue-600 border-b border-blue-200 pb-2 font-medium uppercase tracking-wide transition">Projects</a>
+              <a href="../../About/about.html" class="block text-slate-500 hover:text-blue-600 font-medium uppercase tracking-wide transition">About</a>
             </div>
         </div>
     </nav>
@@ -156,5 +167,21 @@
             2026 Yogi Satrio Wijoyo.
         </div>
     </footer>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close menu when a link is clicked
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    </script>
   </body>
 </html>

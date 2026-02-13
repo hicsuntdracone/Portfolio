@@ -41,6 +41,7 @@
           </a>
         </div>
         <div
+          id="navbar-menu"
           class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wide">
           <a
             href="Projects/projects.html"
@@ -53,7 +54,17 @@
             About
           </a>
         </div>
-        <button class="md:hidden text-slate-600">Menu</button>
+        <button id="menu-toggle" class="md:hidden text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <div class="px-4 py-4 space-y-4">
+          <a href="Projects/projects.html" class="block text-slate-500 hover:text-blue-600 font-medium uppercase tracking-wide transition">Projects</a>
+          <a href="About/about.html" class="block text-slate-500 hover:text-blue-600 font-medium uppercase tracking-wide transition">About</a>
+        </div>
       </div>
     </nav>
 
@@ -137,6 +148,20 @@
     </section>
 
     <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close menu when a link is clicked
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
       const projects = [
         {
           title: "YOLO11s Palm Detection",
