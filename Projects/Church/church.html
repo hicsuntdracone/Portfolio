@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cathedral Digital Twin</title>
+    <title>Church Digital Twin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link 
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" 
@@ -44,9 +44,9 @@
     <header class="hero-gradient text-white py-20 px-4">
         <div class="max-w-4xl mx-auto text-center">
             <span class="bg-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase mb-4 inline-block">UAV Photogrammetry</span>
-            <h1 class="text-4xl md:text-5xl font-bold mb-2">Orthomosaic Digitization</h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">Church Digital Twin</h1>
             <p class="text-lg text-slate-300 leading-relaxed">
-                Orthomosaic digitization of UAV dataset in Priladozhskii, Russia.
+                Digital model of Església de Santa Maria de l'Alba, Tàrrega, Spain.
             </p>
             <div class="flex justify-center gap-4">
         </div>
@@ -58,7 +58,7 @@
             <section>
                 <h2 class="text-2xl font-bold mb-4 border-l-4 border-blue-600 pl-4">Introduction</h2>
                 <p class="text-slate-600 leading-relaxed mb-4">
-                  This map presents a 3 cm/pixel UAV-derived photogrammetric map of the Priladozhskii area. Imagery was processed in Agisoft Metashape to produce an orthomosaic and digital terrain model (DTM). The orthomosaic was digitized in QGIS to create a vector base map of roads, buildings, and land cover, providing a high-resolution spatial dataset for local analysis and visualization.
+                  This project presents a high-resolution 3D model of Església de Santa Maria de l'Alba in Tàrrega, Spain, generated using UAV photogrammetry with a ground sampling distance (GSD) of 4 cm. Aerial imagery was processed in Agisoft Metashape to produce a detailed textured tiled model. The final 3D dataset was published via Cesium ion for interactive web visualization, enabling real-time exploration of the structure and its architectural details in a browser-based environment.
                 </p>
 
             <div class="relative w-full rounded-xl overflow-hidden shadow-lg border bg-slate-100 h-[500px] md:h-[600px]">
@@ -97,7 +97,7 @@
                     <div class="text-xs uppercase tracking-wider text-slate-400">Feature Class</div>
                 </div>
                 <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20">
-                    <div class="text-2xl font-bold">3cm</div>
+                    <div class="text-2xl font-bold">4cm</div>
                     <div class="text-xs uppercase tracking-wider text-slate-400">GSD</div>
                 </div>
                 <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20">
@@ -126,10 +126,26 @@
                     </li>
                 </ul>
             </div>
-                <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                    <h3 class="font-bold text-blue-900 mb-2">Related</h3>
-                    <p class="text-sm text-blue-800 mb-4">Check out my latest portfolio</p>
-                    <a href="../projects.html" class="text-blue-600 font-semibold text-sm hover:underline">View Other →</a>
+                <div class="space-y-4">
+                    <h3 class="font-bold text-slate-900 mb-4">Related Projects</h3>
+                    <div class="space-y-3">
+                        <a href="../BuenosAiresPalm/buenosaires-palm.html" class="block group">
+                            <div class="relative overflow-hidden rounded-lg aspect-square bg-slate-200 shadow-sm hover:shadow-md transition border border-slate-300">
+                                <img src="../BuenosAiresPalm/images/buenosaires-palm-thumb.jpg" alt="Buenos Aires Palm" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div class="absolute inset-0 bg-transparent transition flex items-end">
+                                    <div class="p-3 bg-[#0f172a] text-white font-semibold text-sm">YOLO11s Palm Detection →</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="../Priladozhskii/priladozhskii.html" class="block group">
+                            <div class="relative overflow-hidden rounded-lg aspect-square bg-slate-200 shadow-sm hover:shadow-md transition border border-slate-300">
+                                <img src="../Priladozhskii/images/priladozhskii-thumb.png" alt="Priladozhskii" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div class="absolute inset-0 bg-transparent transition flex items-end">
+                                    <div class="p-3 bg-[#0f172a] text-white font-semibold text-sm">Orthomosaic Digitization →</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
         </aside>
 
