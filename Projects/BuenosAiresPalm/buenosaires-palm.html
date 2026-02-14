@@ -128,10 +128,10 @@
                 </div>
                 <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20">
                     <div class="text-2xl font-bold">
-                      94%
+                      ~0.98
                     </div>
-                    <div class="text-xs uppercase tracking-wider text-slate-400">
-                      mAP @.50
+                    <div class="text-xs tracking-wider text-slate-400">
+                      mAP@0.50
                     </div>
                 </div>
             </div>
@@ -187,7 +187,14 @@
                 <h3 class="text-xl font-bold mb-6">
                   Processing Workflows
                 </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <p class="mt-4 text-sm text-slate-500 text-justify indent-4">
+                  The photogrammetry workflow starts with UAV images and GCP references imported into Metashape, where photos are aligned by building tie points and marking GCPs to improve georeferencing accuracy. Camera parameters are optimized and reprojection errors are cleaned until thresholds are acceptable. A dense point cloud is then generated, ground points are classified, and elevation models (DSM/DTM) and an orthomosaic are produced. The final outputs are exported for mapping and further analysis.
+                </p>
+                <p class="mt-4 text-sm text-slate-500 text-justify indent-4">
+                  The YOLO training workflow uses the orthomosaic to define a training area that is split into 640×640 tiles with overlap, then annotated in Label Studio for palm tree detection. Labels are exported in YOLO format, split into train/validation/test sets, and trained in Google Colab using a YOLO11s model for about 60 epochs. Model performance is evaluated and improved if needed, and once acceptable, the trained weights are exported and converted to ONNX for deployment.
+                </p>
+                </section>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                     <div class="flex flex-col items-center">
                         <h4 class="font-semibold text-lg mb-3">Photogrammetry</h4>
                         <div class="bg-white p-6 rounded-xl border shadow-sm w-fit">
@@ -228,13 +235,34 @@
                 <h3 class="text-xl font-bold mb-6">Technical Specs</h3>
                 <ul class="space-y-4">
                     <li class="flex justify-between border-b border-slate-700 pb-2">
+                        <span class="text-slate-400">Tile Count</span>
+                        <span class="font-mono">96</span>
+                    </li>
+                    <li class="flex justify-between border-b border-slate-700 pb-2">
+                        <span class="text-slate-400">Tile Size</span>
+                        <span class="font-mono">640 px</span>
+                    </li>
+                    <li class="flex justify-between border-b border-slate-700 pb-2">
+                        <span class="text-slate-400">Total Boxes</span>
+                        <span class="font-mono">3290</span>
+                    </li>
+                    <li class="flex justify-between border-b border-slate-700 pb-2">
+                        <span class="text-slate-400">Batch</span>
+                        <span class="font-mono">16</span>
+                    </li>
+                    <li class="flex justify-between border-b border-slate-700 pb-2">
+                        <span class="text-slate-400">Epochs</span>
+                        <span class="font-mono">60</span>
+                    </li>
+                    <li class="flex justify-between border-b border-slate-700 pb-2">
+                        <span class="text-slate-400">CNN</span>
+                        <span class="font-mono">YOLO v11</span>
+                    </li>
+                    <li class="flex justify-between border-b border-slate-700 pb-2">
                         <span class="text-slate-400">Software</span>
                         <span class="font-mono">QGIS, Metashape</span>
                     </li>
-                    <li class="flex justify-between border-b border-slate-700 pb-2">
-                        <span class="text-slate-400">Type</span>
-                        <span class="font-mono">UAV Photogrammetry</span>
-                    </li>
+
                 </ul>
             </div>
             <div class="bg-white p-6 rounded-xl border shadow-sm">
