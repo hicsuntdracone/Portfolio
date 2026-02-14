@@ -181,18 +181,9 @@
                     </table>
                 </div>
             </section>
-            <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-xl border shadow-sm">
-                    <h3 class="font-bold text-lg mb-2">
-                      Sensor Bands
-                    </h3>
-                    <p class="text-sm text-slate-500">
-                      Blue, Green, Red, Red Edge, NIR, Pan
-                    </p>
-                </div>
-            </section>
 
             <section class="mt-12">
+              <div class="border-t border-slate-200 my-8"></div>
                 <h3 class="text-xl font-bold mb-6">
                   Processing Workflows
                 </h3>
@@ -205,7 +196,7 @@
                     </div>
                     
                     <div class="flex flex-col items-center">
-                        <h4 class="font-semibold text-lg mb-3">YOLO Detection</h4>
+                        <h4 class="font-semibold text-lg mb-3">YOLO Training</h4>
                         <div class="bg-white p-6 rounded-xl border shadow-sm w-fit">
                             <img src="yolo-flow.svg" alt="Photogrammetry Workflow" class="h-auto">
                         </div>
@@ -215,7 +206,21 @@
                   * Complete processing workflows from UAV capture to detection and analysis outputs.
                 </p>
             </section>
-
+            <section class="mt-12">
+              <div class="border-t border-slate-200 my-8"></div>
+                <h3 class="text-xl font-bold mb-6">
+                  Training Results
+                </h3>
+                <div class="bg-white p-6 rounded-xl border shadow-sm">
+                    <img src="images/val_batch0_pred.jpg" alt="YOLO Training Results" class="w-full h-auto">
+                </div>
+                <div class="bg-white p-6 rounded-xl border shadow-sm">
+                    <img src="images/results.png" alt="YOLO Training Results" class="w-full h-auto">
+                </div>
+                <p class="mt-4 text-sm text-slate-500 italic">
+                  * Sample validation predictions and training metrics.
+                </p>
+            </section>
         </div>
 
         <aside class="space-y-8">
@@ -231,6 +236,12 @@
                         <span class="font-mono">UAV Photogrammetry</span>
                     </li>
                 </ul>
+            </div>
+            <div class="bg-white p-6 rounded-xl border shadow-sm">
+                <h3 class="font-bold text-lg mb-2">Sensor Bands</h3>
+                <p class="text-sm text-slate-500">
+                  Blue, Green, Red, Red Edge, NIR, Pan
+                </p>
             </div>
                 <div class="space-y-4">
                     <h3 class="font-bold text-slate-900 mb-4">Related Projects</h3>
