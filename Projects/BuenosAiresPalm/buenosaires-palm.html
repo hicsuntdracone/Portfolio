@@ -180,6 +180,48 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="mt-8 space-y-4">
+                  <!-- NDVI Bar -->
+                  <div>
+                      <div class="flex justify-between text-sm font-medium text-slate-700 mb-2">
+                          <span>NDVI</span>
+                          <span class="text-slate-500">(Biomass & Vigor)</span>
+                      </div>
+                      <div class="relative h-8 rounded-lg overflow-hidden border border-slate-300 shadow-sm"
+                          style="background: linear-gradient(to right, #dc2626 0%, #fbbf24 50%, #16a34a 100%);">
+                      </div>
+                      <div class="flex justify-between text-xs text-slate-600 mt-1">
+                          <span>0.0 (Poor)</span>
+                          <span>0.5 (Fair)</span>
+                          <span>1.0 (Excellent)</span>
+                      </div>
+                  </div>
+                  
+                  <!-- NDRE Bar -->
+                  <div>
+                      <div class="flex justify-between text-sm font-medium text-slate-700 mb-2">
+                          <span>NDRE</span>
+                          <span class="text-slate-500">(Red Edge Sensitivity)</span>
+                      </div>
+                      <div class="relative h-8 rounded-lg overflow-hidden border border-slate-300 shadow-sm"
+                          style="background: linear-gradient(to right, #dc2626 0%, #fbbf24 50%, #16a34a 100%);">
+                      </div>
+                      <div class="flex justify-between text-xs text-slate-600 mt-1">
+                          <span>0.0 (Poor)</span>
+                          <span>0.3 (Fair)</span>
+                          <span>0.6+ (Excellent)</span>
+                      </div>
+                  </div>
+              </div>
+              <p class="mt-4 text-sm text-slate-500 italic">
+                * Color gradient bars illustrating index value ranges and interpretations.
+              <div class="border-t border-slate-200 my-8"></div>
+                <h3 class="text-xl font-bold mb-6">
+                  Histogram of Per-Tree NDVI Values
+                </h3>
+              <div class="bg-white p-6 rounded-xl border shadow-sm">
+                  <img src="images/ndvi-histogram.png" alt="NDVI Histogram" class="w-full h-auto">
+              </div>
             </section>
 
             <section class="mt-12">
