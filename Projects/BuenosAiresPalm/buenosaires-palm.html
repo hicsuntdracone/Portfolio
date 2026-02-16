@@ -207,37 +207,34 @@
                 <h3 class="text-xl font-bold mb-6">
                   Processing Workflows
                 </h3>
+                <div class="flex flex-col items-center">
+                    <h4 class="font-semibold text-lg mb-3">Photogrammetry</h4>
+                    <div class="bg-white p-6 rounded-xl border shadow-sm w-fit">
+                        <img src="buenosaires-palm-flow.svg" alt="Photogrammetry Workflow" class="h-auto">
+                    </div>
+                </div>
                 <p class="mt-4 text-sm text-slate-500 text-justify indent-4">
                   The photogrammetry workflow starts with UAV images and GCP references imported into Metashape, where photos are aligned by building tie points and marking GCPs to improve georeferencing accuracy. Camera parameters are optimized and reprojection errors are cleaned until thresholds are acceptable. A dense point cloud is then generated, ground points are classified, and elevation models (DSM/DTM) and an orthomosaic are produced. The final outputs are exported for mapping and further analysis.
                 </p>
+                <div class="flex flex-col items-center">
+                    <h4 class="font-semibold text-lg mb-3">YOLO Training</h4>
+                    <div class="bg-white p-6 rounded-xl border shadow-sm w-fit">
+                        <img src="yolo-flow.svg" alt="YOLO Training Workflow" class="h-auto">
+                    </div>
+                </div>
                 <p class="mt-4 text-sm text-slate-500 text-justify indent-4">
                   The YOLO training workflow uses the orthomosaic to define a training area that is split into 640×640 tiles with overlap, then annotated in Label Studio for palm tree detection. Labels are exported in YOLO format, split into train/validation/test sets, and trained in Google Colab using a YOLO11s model for about 60 epochs. Model performance is evaluated and improved if needed, and once acceptable, the trained weights are exported and converted to ONNX for deployment.
                 </p>
+                <div class="flex flex-col items-center">
+                    <h4 class="font-semibold text-lg mb-3">Spectral Indices Analysis</h4>
+                    <div class="bg-white p-6 rounded-xl border shadow-sm w-fit">
+                        <img src="spectral-indices.svg" alt="Spectral Indices Analysis Workflow" class="h-auto">
+                    </div>
+                </div>
                 <p class="mt-4 text-sm text-slate-500 text-justify indent-4">
                   The third workflow focuses on generating per-tree vegetation health metrics by integrating the orthomosaic produced from UAV photogrammetry and the trained detection model from the previous stages. The multispectral orthomosaic is imported into QGIS, where NDVI and NDRE rasters are calculated using the Raster Calculator with the formulas (NIR − Red) / (NIR + Red) and (NIR − RedEdge) / (NIR + RedEdge). The trained YOLO detection model is then deployed through the Deepness plugin to identify individual palm trees across the orthomosaic, producing bounding box polygons after parameter tuning for confidence and IoU thresholds. Once detection accuracy is acceptable, these polygons are used as zones to extract mean NDVI and NDRE values through zonal statistics, resulting in per-tree vegetation index attributes. This final stage links the outputs of UAV image processing and model training into a single analytical dataset, enabling individual tree health assessment and demonstrating an end-to-end pipeline from raw aerial imagery to spatially explicit plantation analytics.
                 </p>
-                </section>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                    <div class="flex flex-col items-center">
-                        <h4 class="font-semibold text-lg mb-3">Photogrammetry</h4>
-                        <div class="bg-white p-6 rounded-xl border shadow-sm w-fit">
-                            <img src="buenosaires-palm-flow.svg" alt="Photogrammetry Workflow" class="h-auto">
-                        </div>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <h4 class="font-semibold text-lg mb-3">YOLO Training</h4>
-                        <div class="bg-white p-6 rounded-xl border shadow-sm w-fit">
-                            <img src="yolo-flow.svg" alt="YOLO Training Workflow" class="h-auto">
-                        </div>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <h4 class="font-semibold text-lg mb-3">Spectral Indices Analysis</h4>
-                        <div class="bg-white p-6 rounded-xl border shadow-sm w-fit">
-                            <img src="spectral-indices.svg" alt="Spectral Indices Analysis Workflow" class="h-auto">
-                        </div>
-                    </div>
-                </div>
+              </section>
                 <p class="mt-4 text-sm text-slate-500 italic">
                   * Complete processing workflows from UAV capture to detection and analysis outputs.
                 </p>
