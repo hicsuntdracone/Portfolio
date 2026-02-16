@@ -54,7 +54,7 @@
               UAV Photogrammetry
             </span>
             <h1 class="text-4xl md:text-5xl font-bold mb-2">
-              Buenos Aires Palm Detection Using YOLO11s
+              Buenos Aires Palm Detection Using Ultralytics YOLO
             </h1>
             <p class="text-lg text-slate-300 leading-relaxed">
               Multispectral imagery analysis of a palm plantation in Buenos Aires, Argentina.
@@ -135,6 +135,29 @@
                       mAP@0.50
                     </div>
                 </div>
+            </div>
+            <div class="mt-8 max-w-3xl mx-auto">
+              <div class="flex justify-between text-sm font-semibold mb-2">
+                <span>Planting Coverage</span>
+                <span>60.1% planted</span>
+              </div>
+
+              <div class="w-full h-5 rounded-full overflow-hidden bg-slate-200 shadow-inner">
+                <!-- planted -->
+                <div class="h-full bg-green-600 float-left" style="width:60.1%"></div>
+
+                <!-- unplanted -->
+                <div class="h-full bg-red-400 float-left" style="width:39.9%"></div>
+              </div>
+
+              <div class="flex justify-between text-xs mt-2 text-slate-600">
+                <span class="text-green-700 font-semibold">
+                  4,728 planted
+                </span>
+                <span class="text-red-500 font-semibold">
+                  3,141 missing
+                </span>
+              </div>
             </div>
             <section class="mt-12">
                 <h3 class="text-xl font-bold mb-4">
@@ -327,7 +350,7 @@
                 Source
               </h3> 
           <p class="mt-4 text-sm text-slate-500 italic">
-          * Data Source: https://eaglenxt.com/data-set/palm-tree-detection-using-rededge-p
+          * EagleNXT RedEdge Palm Dataset (public multispectral UAV imagery)
           </p>
 
     </main>
