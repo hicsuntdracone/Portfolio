@@ -213,7 +213,11 @@
                 <p class="mt-4 text-sm text-slate-500 text-justify indent-4">
                   The YOLO training workflow uses the orthomosaic to define a training area that is split into 640×640 tiles with overlap, then annotated in Label Studio for palm tree detection. Labels are exported in YOLO format, split into train/validation/test sets, and trained in Google Colab using a YOLO11s model for about 60 epochs. Model performance is evaluated and improved if needed, and once acceptable, the trained weights are exported and converted to ONNX for deployment.
                 </p>
+                <p class="mt-4 text-sm text-slate-500 text-justify indent-4">
+                  The third workflow focuses on generating per-tree vegetation health metrics by integrating the orthomosaic produced from UAV photogrammetry and the trained detection model from the previous stages. The multispectral orthomosaic is imported into QGIS, where NDVI and NDRE rasters are calculated using the Raster Calculator with the formulas (NIR − Red) / (NIR + Red) and (NIR − RedEdge) / (NIR + RedEdge). The trained YOLO detection model is then deployed through the Deepness plugin to identify individual palm trees across the orthomosaic, producing bounding box polygons after parameter tuning for confidence and IoU thresholds. Once detection accuracy is acceptable, these polygons are used as zones to extract mean NDVI and NDRE values through zonal statistics, resulting in per-tree vegetation index attributes. This final stage links the outputs of UAV image processing and model training into a single analytical dataset, enabling individual tree health assessment and demonstrating an end-to-end pipeline from raw aerial imagery to spatially explicit plantation analytics.
+                </p>
                 </section>
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                     <div class="flex flex-col items-center">
                         <h4 class="font-semibold text-lg mb-3">Photogrammetry</h4>
@@ -221,11 +225,16 @@
                             <img src="buenosaires-palm-flow.svg" alt="Photogrammetry Workflow" class="h-auto">
                         </div>
                     </div>
-                    
                     <div class="flex flex-col items-center">
                         <h4 class="font-semibold text-lg mb-3">YOLO Training</h4>
                         <div class="bg-white p-6 rounded-xl border shadow-sm w-fit">
-                            <img src="yolo-flow.svg" alt="Photogrammetry Workflow" class="h-auto">
+                            <img src="yolo-flow.svg" alt="YOLO Training Workflow" class="h-auto">
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <h4 class="font-semibold text-lg mb-3">Spectral Indices Analysis</h4>
+                        <div class="bg-white p-6 rounded-xl border shadow-sm w-fit">
+                            <img src="spectral-indices.svg" alt="Spectral Indices Analysis Workflow" class="h-auto">
                         </div>
                     </div>
                 </div>
@@ -249,7 +258,6 @@
                 </p>
             </section>
         </div>
-
         <aside class="space-y-8">
             <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-xl">
                 <h3 class="text-xl font-bold mb-6">Technical Specs</h3>
@@ -282,7 +290,10 @@
                         <span class="text-slate-400">Software</span>
                         <span class="font-mono">QGIS, Metashape</span>
                     </li>
-
+                    <li class="flex justify-between border-b border-slate-700 pb-2">
+                        <span class="text-slate-400">UAV Dataset Provider</span>
+                        <span class="font-mono">Foto Aérea</span>
+                    </li>
                 </ul>
             </div>
             <div class="bg-white p-6 rounded-xl border shadow-sm">
@@ -313,6 +324,14 @@
                     </div>
                 </div>
         </aside>
+        <section class="mt-12">
+          <div class="border-t border-slate-200 my-8"></div> 
+              <h3 class="text-xl font-bold mb-6">
+                Source
+              </h3> 
+          <p class="mt-4 text-sm text-slate-500 italic">
+          * Data Source: https://eaglenxt.com/data-set/palm-tree-detection-using-rededge-p
+          </p>
 
     </main>
 
